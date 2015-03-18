@@ -28,6 +28,13 @@ gem 'nokogiri'
 gem 'settingslogic'
 gem 'whenever', require: false
 gem 'active_decorator'
+# 認証
+gem 'devise'
+gem 'omniauth-google-oauth2'
+# マークダウン
+gem 'redcarpet'
+gem 'pygments.rb'
+
 group :development do
   gem 'html2slim'
   gem 'bullet'

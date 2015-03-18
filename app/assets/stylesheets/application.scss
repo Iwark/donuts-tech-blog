@@ -1,19 +1,64 @@
-  // First import cerulean variables
-  @import "bootstrap-custom.scss";
+// First import cerulean variables
+@import "bootstrap-custom";
+@import "highlight";
 
-  *{
-    // borderとpaddingをボックス内に含めるようにする
-    box-sizing: border-box;
-    // 長押しポップアップメニューの非表示
-    -webkit-touch-callout:none;
+*{
+  // borderとpaddingをボックス内に含めるようにする
+  box-sizing: border-box;
+  // 長押しポップアップメニューの非表示
+  -webkit-touch-callout:none;
+}
+
+a{
+  color: #555;
+  text-decoration: underline;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+}
+
+.header{
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 50px; 
+  background-color:#282828;
+  z-index: 999;
+  .logo{
+    position: absolute; 
+    top: 0; 
+    left: 20px; 
+    height:100%;
+    img{
+      height: 100%;
+    }
   }
-
-  html, body{
-    width: 100%;
+  ul.info{
+    position: absolute; 
+    top: 0; 
+    right: 20px; 
     height: 100%;
-    margin: 0;
-    padding: 0;
+    li {
+      float: left;
+      line-height: 50px;
+    }
   }
+}
 
-  body{
-  }
+.main-container{
+  padding-top: 50px;
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: #e65900;
+}
+
+@import "articles";
