@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   def show
-    redirect_to :root if @article.status != "approved"
+    redirect_to :root if @article.status != "approved" && !user_signed_in?
   end
 
   # GET /articles/new
@@ -28,16 +28,18 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
   end
-
   # POST /articles
-  def create(article)
+  def create(article, preview = nil)
+
+    @preview = true if preview
+
     @article = Article.new(article)
     @article.user = current_user
 
-    if @article.save
-      redirect_to @article, notice: 'Article was successfully created.'
-    else
+    if @preview || !@article.save
       render :new
+    else
+      redirect_to @article, notice: 'Article was successfully created.'
     end
   end
 
@@ -66,7 +68,6 @@ class ArticlesController < ApplicationController
     def set_resent_articles
       @resent_articles = Article.by_status(:approved).
                         order(created_at: :desc).
-                        limit(5).
-                        includes(:user)
+                        limit(5)
     end
 end

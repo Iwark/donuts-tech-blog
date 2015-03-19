@@ -2,9 +2,9 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :user
     = f.input :title
     = f.input :body
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, value: 'プレビュー', name: 'preview', class: 'btn-warning'
+    = f.button :submit, class: 'btn-primary'

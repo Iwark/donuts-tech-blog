@@ -27,6 +27,7 @@
 
 .article{
   position: relative;
+  margin: 0 -20px;
 }
 
 .article-body{
@@ -39,5 +40,14 @@
     position: absolute;
     top: 260px;
     left: 840px;
+  }
+}
+
+form{
+  .form-group textarea.form-control{
+    height: 600px;
+  }
+  .form-actions{
+    text-align: center;
   }
 }

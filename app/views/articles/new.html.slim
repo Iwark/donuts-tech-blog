@@ -1,5 +1,8 @@
 h1 New article
 
+- if @preview
+  = render 'article', article: @article, resent_articles: []
+
 == render 'form'
 
 = link_to 'Back', articles_path
