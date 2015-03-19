@@ -13,6 +13,7 @@ module ApplicationHelper
     renderer = HTMLwithPygments.new(hard_wrap: true, filter_html: true)
     options = {
       autolink: true,
+      tables: true,
       no_intra_emphasis: true,
       fenced_code_blocks: true,
       lax_html_blocks: true,
