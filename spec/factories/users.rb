@@ -13,6 +13,7 @@
 #  name               :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
+#  authority          :integer          default(0)
 #
 # Indexes
 #

@@ -1,0 +1,17 @@
+
+table.table
+  thead
+    tr
+      th タイトル
+      th 作成者
+      th 状態
+      th 公開
+      th 削除
+  tbody
+    - @articles.each do |article|
+      tr
+        td = article.title
+        td = article.user_name
+        td = article.status
+        td = link_to '公開', admin_article_approve_path(article), method: :patch
+        td = link_to '削除', article_path(article), method: :delete

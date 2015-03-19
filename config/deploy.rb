@@ -1,9 +1,9 @@
-set :application, :donuts-tech-blog
+set :application, "donuts-tech-blog"
 set :repo_url, 'git@github.com:Iwark/donuts-tech-blog.git'
 
 set :scm, :git
 
-set :rbenv_ruby, '2.2.0'
+set :rbenv_ruby, '2.2.1'
 
 # Default value for :linked_files is []
 set :linked_files, %w{config/database.yml config/secrets.yml}

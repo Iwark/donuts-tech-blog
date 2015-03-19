@@ -13,6 +13,7 @@
 #  name               :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
+#  authority          :integer          default(0)
 #
 # Indexes
 #
@@ -21,6 +22,12 @@
 
 class User < ActiveRecord::Base
   devise :database_authenticatable, :trackable, :validatable, :omniauthable
+
+  # 権限
+  # normal
+  # admin
+  enum authority: { normal: 0, admin: 30 }
+  validates :authority, inclusion: {in: %w(normal admin)}
 
   # @donuts.ne.jpで終わるメールアドレスのみを許容する
   validates :email, format: /@donuts\.ne\.jp\z/

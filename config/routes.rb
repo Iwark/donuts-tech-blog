@@ -8,4 +8,10 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  namespace :admin do
+    resources :articles, only: [:index] do
+      patch 'approve'
+    end
+  end
+
 end
