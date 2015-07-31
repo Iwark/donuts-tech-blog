@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :set_resent_articles, only: [:index, :show]
   before_action :authenticate_user!, except: [:index, :show]
-  permits :user, :title, :body
+  permits :title, :body, :series_id
 
   # GET /articles
   def index(page = nil)
@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
   end
+
   # POST /articles
   def create(article, preview = nil)
 
@@ -56,7 +57,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.update(status: :deleted)
 
-    redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to admin_articles_url, notice: 'Article was successfully destroyed.'
   end
 
   private

@@ -7,8 +7,9 @@ class Admin::ArticlesController < AdminController
     @articles = Article.order(created_at: :desc).page(page).per(10).includes(:user)
   end
 
-  def approve(article_id)
-    Article.find(article_id).update(status: :approved)
+  # PATCH /admin/articles/:id/approve
+  def approve(id)
+    Article.find(id).update(status: :approved)
     redirect_to :admin_articles
   end
 end

@@ -10,8 +10,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :articles, only: [:index] do
-      patch 'approve'
+      member do 
+        patch 'approve'
+      end
     end
+    resources :series, except: [:show, :destroy]
   end
 
 end

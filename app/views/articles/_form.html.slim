@@ -2,6 +2,7 @@
   = f.error_notification
 
   .form-inputs
+    = f.input :series_id, collection: Series.all
     = f.input :title
     = f.input :body
 

@@ -6,6 +6,7 @@
     - if article.persisted?
       = link_to article_path(article) do ||
         h1.title = article.title
+        h2.series-title = "〜#{article.series.title}シリーズ〜"
       .created= "#{article.user_name}が#{article.created_at.strftime('%y/%m/%d %H:%M')}に書きました。"
     - else
       h1.title = article.title

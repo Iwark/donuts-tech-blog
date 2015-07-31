@@ -9,14 +9,18 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  status     :integer          default(0)
+#  series_id  :integer
 #
 # Indexes
 #
-#  index_articles_on_user_id  (user_id)
+#  index_articles_on_series_id  (series_id)
+#  index_articles_on_user_id    (user_id)
 #
 
 class Article < ActiveRecord::Base
   belongs_to :user
+  belongs_to :series
+
   delegate :name, to: :user, prefix: true, allow_nil: true
 
   # 状態
