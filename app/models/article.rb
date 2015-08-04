@@ -21,6 +21,9 @@ class Article < ActiveRecord::Base
   belongs_to :user
   belongs_to :series
 
+  has_many :article_tags
+  has_many :tags, through: :article_tags
+
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :title, to: :series, prefix: true, allow_nil: true
 
@@ -34,5 +37,9 @@ class Article < ActiveRecord::Base
   scope :by_status, -> status {
     where(status: statuses[status])
   }
+
+  def public?
+    status == "approved"
+  end
 
 end

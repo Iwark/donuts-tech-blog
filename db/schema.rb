@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731051926) do
+ActiveRecord::Schema.define(version: 20150804083118) do
+
+  create_table "article_tags", force: :cascade do |t|
+    t.integer  "article_id", limit: 4, null: false
+    t.integer  "tag_id",     limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "article_tags", ["article_id"], name: "index_article_tags_on_article_id", using: :btree
+  add_index "article_tags", ["tag_id"], name: "index_article_tags_on_tag_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -33,6 +43,22 @@ ActiveRecord::Schema.define(version: 20150731051926) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",           limit: 255
+    t.integer  "parent_id",      limit: 4
+    t.integer  "lft",            limit: 4,               null: false
+    t.integer  "rgt",            limit: 4,               null: false
+    t.integer  "depth",          limit: 4,   default: 0, null: false
+    t.integer  "children_count", limit: 4,   default: 0, null: false
+    t.integer  "articles_count", limit: 4,   default: 0, null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "tags", ["lft"], name: "index_tags_on_lft", using: :btree
+  add_index "tags", ["parent_id"], name: "index_tags_on_parent_id", using: :btree
+  add_index "tags", ["rgt"], name: "index_tags_on_rgt", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",              limit: 255, default: "", null: false
     t.string   "encrypted_password", limit: 255, default: "", null: false
@@ -49,6 +75,8 @@ ActiveRecord::Schema.define(version: 20150731051926) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "article_tags", "articles"
+  add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "series"
   add_foreign_key "articles", "users"
 end

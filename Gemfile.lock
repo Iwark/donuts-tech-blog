@@ -38,6 +38,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    after_commit_action (1.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     anbt-sql-formatter (0.0.3)
     annotate (2.6.10)
       activerecord (>= 3.2, <= 4.3)
@@ -46,6 +49,8 @@ GEM
     autoprefixer-rails (5.2.1.1)
       execjs
       json
+    awesome_nested_set (3.0.2)
+      activerecord (>= 4.0.0, < 5)
     awesome_print (1.6.1)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
@@ -89,6 +94,10 @@ GEM
     columnize (0.9.0)
     coolline (0.5.0)
       unicode_utils (~> 1.4)
+    counter_culture (0.1.33)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      after_commit_action (~> 1.0.0)
     database_rewinder (0.5.3)
     debug_inspector (0.0.2)
     devise (3.5.1)
@@ -350,6 +359,7 @@ DEPENDENCIES
   action_args
   active_decorator
   annotate
+  awesome_nested_set
   awesome_print
   bootstrap-sass
   bullet
@@ -361,6 +371,7 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano3-unicorn
   coffee-rails (~> 4.1.0)
+  counter_culture
   database_rewinder
   devise
   factory_girl_rails

@@ -34,6 +34,9 @@ gem 'omniauth-google-oauth2'
 # マークダウン
 gem 'redcarpet'
 gem 'pygments.rb'
+# タグ
+gem "awesome_nested_set"
+gem 'counter_culture'
 
 group :development do
   gem 'html2slim'
