@@ -22,6 +22,7 @@ class Article < ActiveRecord::Base
   belongs_to :series
 
   delegate :name, to: :user, prefix: true, allow_nil: true
+  delegate :title, to: :series, prefix: true, allow_nil: true
 
   # 状態
   # temp      下書き
