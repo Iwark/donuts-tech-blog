@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  ##############
+  #  管理画面
+  resources :admin, only: [:index]
   namespace :admin do
     resources :articles, only: [:index] do
       member do 
