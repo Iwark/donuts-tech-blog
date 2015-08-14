@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   }
 
   resources :articles
+  resources :article_images, only: [:create]
 
   ##############
   #  管理画面

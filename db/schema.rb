@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804083118) do
+ActiveRecord::Schema.define(version: 20150814031243) do
+
+  create_table "article_images", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "article_id", limit: 4
+    t.string   "image",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "article_images", ["article_id"], name: "index_article_images_on_article_id", using: :btree
+  add_index "article_images", ["user_id"], name: "index_article_images_on_user_id", using: :btree
 
   create_table "article_tags", force: :cascade do |t|
     t.integer  "article_id", limit: 4, null: false
@@ -75,6 +86,8 @@ ActiveRecord::Schema.define(version: 20150804083118) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "article_images", "articles"
+  add_foreign_key "article_images", "users"
   add_foreign_key "article_tags", "articles"
   add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "series"

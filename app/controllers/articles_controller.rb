@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = Article.find_or_create_by(user_id: current_user.id, status: :temp)
   end
 
   # GET /articles/1/edit
@@ -30,22 +30,20 @@ class ArticlesController < ApplicationController
   end
 
   # POST /articles
-  def create(article, preview = nil)
+  # def create(article, preview = nil)
 
-    @preview = true if preview
+  #   @preview = true if preview
 
-    @article = Article.new(article)
-    @article.user = current_user
-
-    if @preview || !@article.save
-      render :new
-    else
-      redirect_to @article, notice: 'Article was successfully created.'
-    end
-  end
+  #   if @preview || !@article.save
+  #     render :new
+  #   else
+  #     redirect_to @article, notice: 'Article was successfully created.'
+  #   end
+  # end
 
   # PUT /articles/1
   def update(article)
+    @article.status = 'draft' if @article.status == 'temp'
     if @article.update(article)
       redirect_to @article, notice: 'Article was successfully updated.'
     else

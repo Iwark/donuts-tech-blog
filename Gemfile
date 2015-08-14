@@ -38,6 +38,14 @@ gem 'pygments.rb'
 gem "awesome_nested_set"
 gem 'counter_culture'
 
+# 画像upload
+gem 'remotipart'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+# DateTimePicker
+gem 'jquery-datetimepicker-rails'
+
 group :development do
   gem 'html2slim'
   gem 'bullet'
