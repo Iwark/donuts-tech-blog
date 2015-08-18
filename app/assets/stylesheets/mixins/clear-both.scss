@@ -1,0 +1,11 @@
+// 回り込みの解除
+
+@mixin clear-both{
+  &:after {
+    content: "";
+    clear: both;
+    height: 0;
+    display: block;
+    visibility: hidden;
+  }
+}

@@ -22,11 +22,13 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.find_or_create_by(user_id: current_user.id, status: :temp)
+    @article = Article.find_or_create_by(user_id: current_user.id, status: Article.statuses[:temp])
+    @article_images = @article.article_images
   end
 
   # GET /articles/1/edit
   def edit
+    @article_images = @article.article_images
   end
 
   # POST /articles

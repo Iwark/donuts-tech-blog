@@ -23,6 +23,7 @@ class Article < ActiveRecord::Base
 
   has_many :article_tags
   has_many :tags, through: :article_tags
+  has_many :article_images
 
   delegate :name, to: :user, prefix: true, allow_nil: true
   delegate :title, to: :series, prefix: true, allow_nil: true

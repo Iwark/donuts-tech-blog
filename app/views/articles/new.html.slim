@@ -1,8 +1,17 @@
-h1 New article
 
-- if @preview
-  = render 'article', article: @article, resent_articles: []
+.new-article
 
-== render 'form'
+  .contents
+    h1 New article
 
-== render 'article_images/form', article_image: ArticleImage.new, article_id: @article.id
+    - if @preview
+      = render 'article', article: @article, resent_articles: []
+
+    == render 'form'    
+
+  .sidebar-right
+
+    table.article-images
+      = render @article_images
+
+    == render 'article_images/form', article_image: ArticleImage.new, article_id: @article.id

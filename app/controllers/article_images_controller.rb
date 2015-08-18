@@ -11,8 +11,6 @@ class ArticleImagesController < ApplicationController
     @article_image.user = current_user
 
     @article_image.save
-      
-    render json: @article_image.to_json, status: :ok
   end
 
 end
