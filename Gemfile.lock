@@ -104,6 +104,7 @@ GEM
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
       after_commit_action (~> 1.0.0)
+    dalli (2.7.4)
     database_rewinder (0.5.3)
     debug_inspector (0.0.2)
     devise (3.5.2)
@@ -486,6 +487,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.1.0)
   counter_culture
+  dalli
   database_rewinder
   devise
   factory_girl_rails

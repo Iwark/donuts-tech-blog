@@ -76,6 +76,9 @@ group :development, :test do
   gem 'database_rewinder'
   gem 'timecop'
 end
+group :staging, :production do
+  gem 'dalli'
+end
 group :test do
   gem 'shoulda-matchers'
 end
