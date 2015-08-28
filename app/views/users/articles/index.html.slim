@@ -1,0 +1,24 @@
+h1 = "#{current_user.name}の書いた記事"
+
+= link_to '新規記事作成', new_users_article_path, class: 'btn btn-default'
+
+table.table.mt10
+  thead
+    tr
+      th シリーズ
+      th 記事タイトル
+      th 公開日時
+      th 状態
+      th 公開
+      th 削除
+  tbody
+    - @articles.each do |article|
+      tr
+        td = article.series_title
+        td = article.title
+        td = article.created_at.strftime('%Y/%m/%d %H:%M')
+        td = article.status
+        td = link_to '詳細', article_path(article)
+        td = link_to '削除', users_article_path(article), method: :delete
+
+= paginate @articles
