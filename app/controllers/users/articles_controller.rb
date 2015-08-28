@@ -8,6 +8,7 @@ class Users::ArticlesController < ApplicationController
   # GET /my_articles
   def index(page=1)
     @articles = current_user.articles.
+                  where.not(status: Article.statuses[:deleted]).
                   order(created_at: :desc).
                   page(page).
                   per(20).
@@ -39,7 +40,7 @@ class Users::ArticlesController < ApplicationController
   def destroy
     @article.update(status: :deleted)
 
-    redirect_to admin_articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to users_articles_url, notice: 'Article was successfully destroyed.'
   end
 
   private
