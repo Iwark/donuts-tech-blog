@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'articles#index'
+  get '/health' => 'application#health'
 
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
