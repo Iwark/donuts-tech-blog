@@ -48,6 +48,9 @@ gem 'fog'
 # DateTimePicker
 gem 'jquery-datetimepicker-rails'
 
+# PC/スマホ 切り分け
+gem 'jpmobile'
+
 group :development do
   gem 'html2slim'
   gem 'bullet'

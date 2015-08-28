@@ -259,6 +259,7 @@ GEM
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jpmobile (4.2.0)
     jquery-datetimepicker-rails (2.4.1.0)
     jquery-rails (4.0.4)
       rails-dom-testing (~> 1.0)
@@ -498,6 +499,7 @@ DEPENDENCIES
   html2slim
   html5_validators
   jbuilder (~> 2.0)
+  jpmobile
   jquery-datetimepicker-rails
   jquery-rails
   kaminari
