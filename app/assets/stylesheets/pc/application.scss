@@ -1,7 +1,7 @@
 // First import cerulean variables
-@import "bootstrap-custom";
-@import "highlight";
-@import "mixins/*";
+@import "../bootstrap-custom";
+@import "../highlight";
+@import "../mixins/*";
 
 *{
   // borderとpaddingをボックス内に含めるようにする
