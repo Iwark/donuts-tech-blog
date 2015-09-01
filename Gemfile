@@ -39,7 +39,8 @@ gem 'pygments.rb'
 # タグ
 gem "awesome_nested_set"
 gem 'counter_culture'
-
+# メタタグ
+gem 'meta-tags'
 # 画像upload
 gem 'remotipart'
 gem 'carrierwave'
