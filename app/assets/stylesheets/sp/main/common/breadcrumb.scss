@@ -13,6 +13,7 @@ ol.breadcrumb{
       padding-left: 8px;
     }
     a{
+      text-decoration: none;
       &:before, &:after{
         content: "";
         position: absolute;
