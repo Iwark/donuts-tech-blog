@@ -40,6 +40,14 @@ class Article < ActiveRecord::Base
     where(status: statuses[status])
   }
 
+  scope :approved_by_page, -> page, per=1 {
+    by_status(:approved).
+    order(created_at: :desc).
+    page(page).
+    per(per).
+    includes(:user)
+  }
+
   scope :between, -> from, to {
     where(arel_table[:created_at].gt(from)).
     where(arel_table[:created_at].lt(to))

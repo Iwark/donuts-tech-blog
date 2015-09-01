@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :article_images, only: [:create]
 
   # シリーズ
-  resources :series, only: [:index, :show]
+  resources :series, only: [:show]
 
   ##############
   #  ログイン必須
