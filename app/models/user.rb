@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
 
   has_many :articles
 
+  def administrator?
+    self.authority == "admin"
+  end
+
   def self.find_for_google_oauth2(auth)
     user = User.where(email: auth.info.email).first
 

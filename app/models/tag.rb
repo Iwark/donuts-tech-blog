@@ -26,4 +26,9 @@ class Tag < ActiveRecord::Base
   has_many :article_tags
   has_many :articles, through: :article_tags
 
+  def deletable?(user, article_id)
+    article = Article.find(article_id)
+    user.administrator? || article.user_id == user.id
+  end
+
 end

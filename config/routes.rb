@@ -8,11 +8,18 @@ Rails.application.routes.draw do
   }
 
   # 記事
-  resources :articles, only: [:index, :show]
+  resources :articles, only: [:index, :show] do 
+    member do 
+      delete :destroy_tag
+    end
+  end
   resources :article_images, only: [:create]
 
   # シリーズ
   resources :series, only: [:show]
+
+  # タグ
+  resources :tags, only: [:show]
 
   ##############
   #  ログイン必須

@@ -43,6 +43,17 @@ class Users::ArticlesController < ApplicationController
     redirect_to users_articles_url, notice: 'Article was successfully destroyed.'
   end
 
+  # AJAX: タグ削除
+  def destroy_tag(id, tag_id)
+    if curator_signed_in?
+      if @article_tag = ArticleTag.find_by(article_id: id, tag_id: tag_id)
+        if current_user.administrator? || @article_tag.article.user_id == current_user.id
+          @article_tag.destroy
+        end
+      end
+    end
+  end
+
   private
     def set_article(id)
       @article = Article.find(id)

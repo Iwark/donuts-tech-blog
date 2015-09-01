@@ -1,0 +1,33 @@
+.article-header{
+  position: relative;
+  width: 100%;
+  height: 240px;
+  background-image: image-url("article_header.jpg");
+  background-size: auto 240px;
+  h1.title{
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    margin: 0;
+    color: white;
+  }
+  h2.series-title{
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    margin: 0;
+    color: white;
+  }
+  .ah-footer{
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    color: white;
+    .created, .sns-buttons{
+      display: inline-block;
+    }
+    .article-tags{
+      margin-top: 10px;
+    }
+  }
+}

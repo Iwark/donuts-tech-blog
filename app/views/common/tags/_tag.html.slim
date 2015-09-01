@@ -1,0 +1,7 @@
+.tag data-tag-id=tag.id
+  span.glyphicon.glyphicon-tag
+    = link_to tag_path(tag) do ||
+      = tag.name
+      span.count = "(#{tag.articles_count})"
+  -if defined?(article_id) && user_signed_in? && tag.deletable?(current_user, article_id)
+    = link_to '×', destroy_tag_article_path(article_id, tag_id: tag.id), method: :delete, remote: true, class: 'delete-tag'
