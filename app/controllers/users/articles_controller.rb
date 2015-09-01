@@ -3,7 +3,7 @@
 class Users::ArticlesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_article, only: [:edit, :update, :destroy]
-  permits :title, :body, :series_id
+  permits :title, :body, :series_id, tag_ids: []
 
   # GET /my_articles
   def index(page=1)
@@ -29,6 +29,7 @@ class Users::ArticlesController < ApplicationController
   # PUT /articles/1
   def update(article)
     @article.status = 'draft' if @article.status == 'temp'
+    @article.tags = Tag.where(id: article['tag_ids'].map(&:to_i))
     if @article.update(article)
       redirect_to @article, notice: 'Article was successfully updated.'
     else
