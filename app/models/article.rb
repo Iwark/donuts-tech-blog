@@ -40,7 +40,7 @@ class Article < ActiveRecord::Base
     where(status: statuses[status])
   }
 
-  scope :approved_by_page, -> page, per=1 {
+  scope :approved_by_page, -> page, per=10 {
     by_status(:approved).
     order(created_at: :desc).
     page(page).
