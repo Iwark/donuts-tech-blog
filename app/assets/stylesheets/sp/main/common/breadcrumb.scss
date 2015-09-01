@@ -1,0 +1,56 @@
+ol.breadcrumb{
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #fafafa;
+  @include clear-both;
+  li{
+    position: relative;
+    display: block;
+    float: left;
+    height: 30px;
+    padding-right: 2px;
+    &:not(:first-child){
+      padding-left: 8px;
+    }
+    a{
+      &:before, &:after{
+        content: "";
+        position: absolute;
+        top: 2px;
+        border: 11px solid transparent;
+        pointer-events: none;
+        cursor: default;
+      }
+      &:before{
+        right: -20px;
+        border-left: 12px solid #ddd;
+        z-index: 1;
+      }
+      &:after{
+        right: -19px;
+        border-left: 12px solid #fff;
+        z-index: 2;
+      }
+      span{
+        font-size: 12px;
+        padding: 5px;
+        line-height: 29px;
+      }
+      span.glyphicon.glyphicon-home{
+        top: 0;
+        line-height: 15px;
+        &:before{
+          color: #ff6363;
+          margin-right: 3px;
+          vertical-align: middle;
+        }
+      }
+    }
+    strong{
+      display: block;
+      margin-top: 5px;
+      margin-left: 8px;
+      font-size: 12px;
+    }
+  }
+}

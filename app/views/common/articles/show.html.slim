@@ -1,1 +1,5 @@
+== render 'common/breadcrumb', 
+  links:        [:root, @article.series.title => series_path(@article.series) ], 
+  current_page: @article.title
+
 = render 'article', article: @article, resent_articles: @resent_articles
