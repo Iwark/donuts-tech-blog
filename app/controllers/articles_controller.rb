@@ -4,12 +4,8 @@ class ArticlesController < ApplicationController
   before_action :set_resent_articles, only: [:index, :show]
 
   # GET /articles
-  def index(page = nil)
-    @articles = Article.by_status(:approved).
-                        order(created_at: :desc).
-                        page(page).
-                        per(1).
-                        includes(:user)
+  def index(page=1)
+    @articles = Article.approved_by_page(page)
   end
 
   # GET /articles/1

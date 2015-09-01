@@ -7,8 +7,12 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
+  # 記事
   resources :articles, only: [:index, :show]
   resources :article_images, only: [:create]
+
+  # シリーズ
+  resources :series, only: [:show]
 
   ##############
   #  ログイン必須

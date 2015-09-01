@@ -1,0 +1,28 @@
+/ パンくずリストの表示
+/ 構造化: http://www.data-vocabulary.org/Breadcrumb/
+
+- links ||= []
+- current_page ||= ''
+
+= content_for :breadcrumb
+  ol.breadcrumb[itemscope itemtype="http://schema.org/BreadcrumbList"]
+    - links.each_with_index do |link, i|
+      li[itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"]
+        - if link == :root
+          = link_to :root, itemprop: 'item' do ||
+            span.glyphicon.glyphicon-home[itemprop='name'] = t(".#{link}")
+        - elsif link.is_a?(Hash)
+          = link_to link.values[0], itemprop: 'item' do ||
+            span[itemprop='name'] = link.keys[0].is_a?(Symbol) ? t(".#{link.keys[0]}") : link.keys[0]
+        - else
+          = link_to link, itemprop: 'item' do ||
+            span[itemprop='name'] = t(".#{link}")
+        meta itemprop="position" content="#{i+1}" /
+    li[itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"]
+      - if current_page == :root
+        strong.glyphicon.glyphicon-home[itemprop='item']
+          span[itemprop='name'] = t(".#{current_page}")
+      - else
+        strong[itemprop='item']
+          span[itemprop='name'] = current_page.is_a?(Symbol) ? t(".#{current_page}") : current_page
+      meta itemprop="position" content="#{links.length+1}" /
