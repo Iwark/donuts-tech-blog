@@ -1,0 +1,10 @@
+.article-line
+  .article-header
+    = link_to article_path(article) do ||
+      h1.title = article.title
+      h2.series-title = "〜#{article.series_title}シリーズ〜"
+    .ah-footer
+      .created = "#{article.user_name}が#{article.created_at.strftime('%y/%m/%d %H:%M')}に書きました。"
+      .article-tags
+        - article.tags.each do |tag|
+          = render 'tags/tag', tag: tag, article_id: article.id

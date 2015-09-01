@@ -3,6 +3,7 @@
   current_page: "「#{@tag.name}」タグ"
 
 .articles
-  = render @articles, resent_articles: @resent_articles
+  - @articles.each do |article|
+    = render 'articles/article_line', article: article
 
 = paginate @articles
