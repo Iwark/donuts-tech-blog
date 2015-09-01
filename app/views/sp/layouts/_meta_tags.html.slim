@@ -11,14 +11,14 @@ meta name="apple-mobile-web-app-title" content="DonutsTechBlog"
 
 meta name="twitter:widgets:link-color" content="#92e1c4"
 
-/ link media='handheld' rel='alternate' href= request.original_url.gsub(request.host, "tech.donuts.ne.jp")
-/ link rel="canonical" href= request.original_url.gsub(request.host, "tech.donuts.ne.jp")
+link media='handheld' rel='alternate' href= request.original_url.gsub(request.host, "tech.donuts.ne.jp")
+link rel="canonical" href= request.original_url.gsub(request.host, "tech.donuts.ne.jp")
 
-/ -if Rails.env.production?
-/   javascript:
-/     if(!location.hostname.match("tech.donuts.ne.jp")){
-/       location.href = location.href.replace(location.hostname, "tech.donuts.ne.jp");
-/     }
+-if Rails.env.production?
+  javascript:
+    if(!location.hostname.match("tech.donuts.ne.jp")){
+      location.href = location.href.replace(location.hostname, "tech.donuts.ne.jp");
+    }
 
 = csrf_meta_tags
 
