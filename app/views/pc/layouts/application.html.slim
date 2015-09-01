@@ -5,6 +5,9 @@ html
     = stylesheet_link_tag    'pc/application', media: 'all'
     = javascript_include_tag 'application'
     = favicon_link_tag 'favicon.ico'
+    script type="text/x-mathjax-config"
+      | MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
   body class="#{controller.class.parent.name.downcase} #{controller.controller_name}"
     .wrapper
       .header
