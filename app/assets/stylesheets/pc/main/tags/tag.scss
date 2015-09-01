@@ -1,0 +1,29 @@
+.tag{
+  border: 1px solid #ddd;
+  padding: 3px 8px;
+  margin: 4px;
+  border-radius: 4px;
+  background-color: #fff;
+  .delete-tag{
+    margin-left: 8px;
+  }
+  .glyphicon-tag{
+    &:before{
+      color: $orange-color;
+      margin-right: 4px;
+      font-size: 12px;
+    }
+    a{
+      text-decoration: none;
+      &:hover{
+        span.count{
+          color: #777;
+        }
+      }
+      span.count{
+        font-size: 13px;
+        margin-left: 4px;                  
+      }
+    }
+  }
+}
