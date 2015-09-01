@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def markdown(text)
-    renderer = HTMLwithPygments.new(hard_wrap: true, filter_html: true)
+    renderer = ArticleRenderer.new(hard_wrap: true, filter_html: true)
     options = {
       autolink: true,
       tables: true,
@@ -23,4 +23,23 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
+  class ArticleRenderer < HTMLwithPygments
+    def block_code(code, language)
+      if language=="mathjax"
+        "<script type=\"math/tex; mode=display\">\n#{code}\n</script>"
+      else
+        super(code, language)
+      end
+    end
+
+    def codespan(code)
+      if code[0] == "$" && code[-1] == "$"
+        "<script type=\"math/tex\">#{code[1...-1]}</script>"
+      elsif code[0..1] == "\\(" && code[-2..-1] == "\\)"
+        "<script type=\"math/tex\">#{code[2...-2]}</script>"
+      else
+        "<code>#{code}</code>"
+      end
+    end
+  end
 end
