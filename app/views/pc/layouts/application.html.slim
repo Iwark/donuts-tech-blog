@@ -13,12 +13,12 @@ html
       .header
         .logo
           = link_to image_tag('logo.png'), root_path
-        ul.user-info
-          / ログインしていなければログインボタンを表示する
-          -unless user_signed_in?
-            li = link_to 'ログイン', user_omniauth_authorize_path(:google_oauth2)
-          -else
-            li = link_to 'ログアウト', destroy_user_session_path, method: :delete
+        / ul.user-info
+        /   / ログインしていなければログインボタンを表示する
+        /   -unless user_signed_in?
+        /     li = link_to 'ログイン', user_omniauth_authorize_path(:google_oauth2)
+        /   -else
+        /     li = link_to 'ログアウト', destroy_user_session_path, method: :delete
       .main-container
         -if content_for? :breadcrumb
           section.top-bar
