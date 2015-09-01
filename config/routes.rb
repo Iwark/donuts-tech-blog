@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
 
   root 'articles#index'
+  get '/health' => 'application#health'
 
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
-  resources :articles
+  resources :articles, only: [:index, :show]
+  resources :article_images, only: [:create]
+
+  ##############
+  #  ログイン必須
+  namespace :users, path: '' do
+    resources :articles, path: :my_articles, except: [:show]
+  end
 
   ##############
   #  管理画面

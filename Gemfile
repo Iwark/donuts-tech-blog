@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-gem 'rails', '4.2.0'
+ruby '2.2.2'
+
+gem 'rails', '4.2.1'
 gem 'mysql2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -37,6 +39,18 @@ gem 'pygments.rb'
 # タグ
 gem "awesome_nested_set"
 gem 'counter_culture'
+# メタタグ
+gem 'meta-tags'
+# 画像upload
+gem 'remotipart'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+# DateTimePicker
+gem 'jquery-datetimepicker-rails'
+
+# PC/スマホ 切り分け
+gem 'jpmobile'
 
 group :development do
   gem 'html2slim'
@@ -65,6 +79,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_rewinder'
   gem 'timecop'
+end
+group :staging, :production do
+  gem 'dalli'
 end
 group :test do
   gem 'shoulda-matchers'

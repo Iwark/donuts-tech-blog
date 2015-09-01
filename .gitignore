@@ -34,6 +34,7 @@ Temporary Items
 /test/tmp/
 /test/version_tmp/
 /tmp/
+/public/images/
 
 ## Specific to RubyMotion:
 .dat*
@@ -80,6 +81,7 @@ pickle-email-*.html
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 
 config/secrets.yml
+config/database.yml
 
 ## Environment normalisation:
 /.bundle

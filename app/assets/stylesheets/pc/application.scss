@@ -1,6 +1,5 @@
 // First import cerulean variables
-@import "bootstrap-custom";
-@import "highlight";
+@import "../mixins/*";
 
 *{
   // borderとpaddingをボックス内に含めるようにする
@@ -12,6 +11,10 @@
 a{
   color: #555;
   text-decoration: underline;
+}
+
+a.btn{
+  text-decoration: none;
 }
 
 html, body{
@@ -60,6 +63,10 @@ body{
 
 h1, h2, h3, h4, h5, h6{
   color: #e65900;
+}
+
+.mt10{
+  margin-top: 10px;
 }
 
 @import "articles";
