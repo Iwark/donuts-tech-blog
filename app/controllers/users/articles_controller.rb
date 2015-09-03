@@ -8,7 +8,7 @@ class Users::ArticlesController < ApplicationController
   # GET /my_articles
   def index(page=1)
     @articles = current_user.articles.
-                  where.not(status: Article.statuses[:deleted]).
+                  where.not(status: [Article.statuses[:temp], Article.statuses[:deleted]]).
                   order(created_at: :desc).
                   page(page).
                   per(20).
