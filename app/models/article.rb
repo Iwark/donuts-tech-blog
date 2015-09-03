@@ -56,6 +56,7 @@ class Article < ActiveRecord::Base
   }
 
   def image_url
+    return nil unless self.body
     m = self.body.match(/\!\[.*?\]\((.*?)\)/)
     m ? m[1] : nil
   end
