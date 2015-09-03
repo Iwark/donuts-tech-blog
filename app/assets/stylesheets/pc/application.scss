@@ -45,14 +45,22 @@ body{
       height: 100%;
     }
   }
-  ul.user-info{
-    position: absolute; 
-    top: 0; 
-    right: 20px; 
+  ul.header-menu{
+    position: absolute;
+    top: 0;
+    right: 20px;
     height: 100%;
     li {
-      float: left;
+      float: right;
+      margin-right: 20px;
       line-height: 50px;
+      list-style: none;
+      a{
+        color: #eee;
+        &:hover{
+          color: #aaa;
+        }
+      }
     }
   }
 }
@@ -114,4 +122,5 @@ h1, h2, h3, h4, h5, h6{
   margin-top: 10px;
 }
 
+@import "../admin/*";
 @import "main/**/*";

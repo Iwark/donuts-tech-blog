@@ -10,3 +10,11 @@
   .form-actions
     = f.button :submit, value: 'プレビュー', name: 'preview', class: 'btn-warning'
     = f.button :submit, class: 'btn-primary'
+
+= content_for(:sidebar_right)
+
+  table.article-images
+    - @article_images.each do |article_image|
+      = render 'article_images/article_image', article_image: article_image
+
+  == render 'article_images/form', article_image: ArticleImage.new, article_id: @article.id

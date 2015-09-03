@@ -14,15 +14,9 @@ Rails.application.routes.draw do
     end
   end
   resources :article_images, only: [:create]
-
-  # シリーズ
   resources :series, only: [:show]
-
-  # タグ
-  resources :tags, only: [:show]
-
-  # ユーザーページ
-  resources :users, only: [:show]
+  resources :tags,   only: [:show]
+  resources :users,  only: [:show]
 
   ##############
   #  ログイン必須
@@ -40,6 +34,8 @@ Rails.application.routes.draw do
       end
     end
     resources :series, except: [:show, :destroy]
+    resources :tags,   except: [:show, :destroy]
+    resources :users,  except: [:show, :destroy]
   end
 
 end

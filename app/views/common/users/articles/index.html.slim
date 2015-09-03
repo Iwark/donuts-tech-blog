@@ -1,3 +1,7 @@
+== render 'common/breadcrumb', 
+  links:        [:root], 
+  current_page: :users_articles
+
 h1 = "#{current_user.name}の書いた記事"
 
 = link_to '新規記事作成', new_users_article_path, class: 'btn btn-default'
@@ -10,6 +14,7 @@ table.table.mt10
       th 作成日時
       th 状態
       th 詳細
+      th 編集
       th 削除
   tbody
     - @articles.each do |article|
@@ -19,6 +24,7 @@ table.table.mt10
         td = article.created_at.strftime('%Y/%m/%d %H:%M')
         td = article.status
         td = link_to '詳細', article_path(article)
+        td = link_to '編集', edit_users_article_path(article)
         td = link_to '削除', users_article_path(article), method: :delete
 
 = paginate @articles

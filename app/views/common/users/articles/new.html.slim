@@ -1,18 +1,12 @@
+== render 'common/breadcrumb', 
+  links:        [:root, :users_articles], 
+  current_page: :new_users_article
 
 .new-article
 
   .contents
-    h1 New article
 
     - if @preview
       = render 'article', article: @article, resent_articles: []
 
     == render 'form'    
-
-  .sidebar-right
-
-    table.article-images
-      - @article_images.each do |article_image|
-        = render 'article_images/article_image', article_image: article_image
-
-    == render 'article_images/form', article_image: ArticleImage.new, article_id: @article.id

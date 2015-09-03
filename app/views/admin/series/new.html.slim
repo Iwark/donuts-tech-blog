@@ -1,5 +1,5 @@
-h1 New series
+== render 'common/breadcrumb', 
+  links:        [:root, :admin_index, :admin_series_index], 
+  current_page: :new_admin_series
 
-== render 'form'
-
-= link_to 'Back', admin_series_index_path
+== render 'form', series: @series

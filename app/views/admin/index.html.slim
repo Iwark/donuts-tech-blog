@@ -1,5 +1,9 @@
-h1 管理画面
+== render 'common/breadcrumb', 
+  links:        [:root], 
+  current_page: :admin_index
 
-ul
-  li = link_to '記事管理', admin_articles_path
-  li = link_to 'シリーズ管理', admin_series_index_path
+ul.admin-menu
+  li = link_to_path :admin_articles,       class: 'glyphicon glyphicon-duplicate'
+  li = link_to_path :admin_series_index,   class: 'glyphicon glyphicon-folder-open'
+  li = link_to_path :admin_tags,           class: 'glyphicon glyphicon-tags'
+  li = link_to_path :admin_users,          class: 'glyphicon glyphicon-user'

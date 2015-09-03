@@ -45,15 +45,8 @@ body{
       height: 100%;
     }
   }
-  ul.user-info{
-    position: absolute; 
-    top: 0; 
-    right: 20px; 
-    height: 100%;
-    li {
-      float: left;
-      line-height: 50px;
-    }
+  ul.header-menu{
+    display: none;
   }
 }
 

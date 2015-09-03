@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def link_to_path path, **html_options
+    link_to t("common.breadcrumb.#{path}"), path, html_options
+  end
+
   class HTMLwithPygments < Redcarpet::Render::HTML
     def block_code(code, language)
       sha = Digest::SHA1.hexdigest(code)

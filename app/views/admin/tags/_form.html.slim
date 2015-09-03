@@ -1,9 +1,10 @@
-= simple_form_for([:admin, series]) do |f|
+/ tag
+
+= simple_form_for([:admin, tag]) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :description
+    = f.input :name
 
   .form-actions
     = f.button :submit, class: 'btn-primary'

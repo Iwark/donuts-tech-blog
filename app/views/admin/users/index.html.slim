@@ -1,0 +1,20 @@
+== render 'common/breadcrumb', 
+  links:        [:root, :admin_index], 
+  current_page: :admin_users
+
+table.table
+  thead
+    tr
+      th ID
+      th 名前
+      th メアド
+      th 権限
+      th 編集
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.id
+        td = user.name
+        td = user.email
+        td = user.authority
+        td = link_to '編集', edit_admin_user_path(user)

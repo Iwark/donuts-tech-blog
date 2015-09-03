@@ -5,9 +5,9 @@ class Admin::SeriesController < AdminController
   before_action :set_series, only: [:edit, :update]
   permits :title, :description
 
-  # GET /admin/articles
-  def index(page = nil)
-    @series = Series.all
+  # GET /admin/series
+  def index(page=1)
+    @series = Series.all.page(page).per(20)
   end
 
   def new
