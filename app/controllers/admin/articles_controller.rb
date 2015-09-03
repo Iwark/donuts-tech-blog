@@ -9,7 +9,10 @@ class Admin::ArticlesController < AdminController
 
   # PATCH /admin/articles/:id/approve
   def approve(id)
-    Article.find(id).update(status: :approved)
+    article = Article.find(id)
+    article.status = :approved
+    article.approved_at ||= Time.zone.now
+    article.save
     redirect_to :admin_articles
   end
 end

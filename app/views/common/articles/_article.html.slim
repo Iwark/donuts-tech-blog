@@ -13,7 +13,7 @@ javascript:
       .ah-footer
         .created
           = link_to article.user_name, user_path(article.user)
-          = "が#{article.created_at.strftime('%y/%m/%d %H:%M')}に書きました。"
+          = "が#{article.approved_at.strftime('%y/%m/%d %H:%M')}に書きました。" if article.approved_at
         = render 'articles/sns_buttons', article: article
         .article-tags
           - article.tags.each do |tag|

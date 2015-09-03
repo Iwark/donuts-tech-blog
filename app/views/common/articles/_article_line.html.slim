@@ -1,7 +1,7 @@
 .article-line
   .alheader
     .date
-      = article.created_at.strftime('%Y年 %m月 %d日')
+      = article.approved_at.strftime('%Y年 %m月 %d日') if article.approved_at
     .author
       | written by
       = link_to article.user_name, user_path(article.user)

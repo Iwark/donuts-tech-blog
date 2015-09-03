@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814031243) do
+ActiveRecord::Schema.define(version: 20150903060257) do
 
   create_table "article_images", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -35,15 +35,17 @@ ActiveRecord::Schema.define(version: 20150814031243) do
   add_index "article_tags", ["tag_id"], name: "index_article_tags_on_tag_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.string   "title",      limit: 255
-    t.text     "body",       limit: 65535
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.integer  "status",     limit: 4,     default: 0
-    t.integer  "series_id",  limit: 4
+    t.integer  "user_id",     limit: 4
+    t.string   "title",       limit: 255
+    t.text     "body",        limit: 65535
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "status",      limit: 4,     default: 0
+    t.integer  "series_id",   limit: 4
+    t.datetime "approved_at"
   end
 
+  add_index "articles", ["approved_at"], name: "index_articles_on_approved_at", using: :btree
   add_index "articles", ["series_id"], name: "index_articles_on_series_id", using: :btree
   add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
 
