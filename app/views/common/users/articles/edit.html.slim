@@ -1,8 +1,14 @@
-h1 Editing article
+.new-article
 
-== render 'form'
+  .contents
+    h1 Edit article
 
-= link_to 'Show', @article
-'|
-= link_to 'Back', articles_path
+    == render 'form'    
 
+  .sidebar-right
+
+    table.article-images
+      - @article_images.each do |article_image|
+        = render 'article_images/article_image', article_image: article_image
+
+    == render 'article_images/form', article_image: ArticleImage.new, article_id: @article.id

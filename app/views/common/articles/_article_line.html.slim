@@ -1,10 +1,24 @@
 .article-line
-  .article-header
-    = link_to article_path(article) do ||
-      h1.title = article.title
-      h2.series-title = "〜#{article.series_title}シリーズ〜"
-    .ah-footer
-      .created = "#{article.user_name}が#{article.created_at.strftime('%y/%m/%d %H:%M')}に書きました。"
+  .alheader
+    .date
+      = article.created_at.strftime('%Y年 %m月 %d日')
+    .author
+      | written by
+      = link_to article.user_name, user_path(article.user)
+  .albody
+    .left
+      - if article.image_url
+        = link_to image_tag(article.image_url, class: 'org'), article_path(article)
+      - else
+        = link_to image_tag('article_header.jpg', class: 'default'), article_path(article)
+    .right
+      .series-title = link_to article.series_title, series_path(article.series)
+      = link_to article_path(article) do ||
+        h1.title 
+          = article.title
+        .introduction 
+          = truncate(sanitize(markdown(article.body), tags: []), length: 140)
       .article-tags
         - article.tags.each do |tag|
           = render 'tags/tag', tag: tag, article_id: article.id
+  hr

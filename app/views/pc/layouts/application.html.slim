@@ -28,5 +28,10 @@ html
             / p.notice= notice
             / p.alert= alert
             = yield
+          .sidebar-right
+            - if content_for? :sidebar_right
+              = yield :sidebar_right
+            - else
+              = render 'layouts/sidebar_right'
         footer
           .copyright = "Copyright©Donuts,co.ltd.All rights Reserved."

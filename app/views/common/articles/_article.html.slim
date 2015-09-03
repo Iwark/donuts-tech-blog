@@ -11,7 +11,9 @@ javascript:
         h1.title = article.title
         h2.series-title = "〜#{article.series_title}シリーズ〜"
       .ah-footer
-        .created = "#{article.user_name}が#{article.created_at.strftime('%y/%m/%d %H:%M')}に書きました。"
+        .created
+          = link_to article.user_name, user_path(article.user)
+          = "が#{article.created_at.strftime('%y/%m/%d %H:%M')}に書きました。"
         = render 'articles/sns_buttons', article: article
         .article-tags
           - article.tags.each do |tag|
@@ -23,9 +25,10 @@ javascript:
   .article-body
     .contents
       == markdown(article.body)
-    .sidebar-right
-      .new-articles
-        h3 最近の投稿
-        ul
-          - resent_articles.each do |article|
-            li = link_to article.title, article_path(article)
+
+/ = content_for(:sidebar_right) do ||
+/   .new-articles
+/     h3 最近の投稿
+/     ul
+/       - resent_articles.each do |article|
+/         li = link_to article.title, article_path(article)

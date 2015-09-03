@@ -26,6 +26,11 @@
     left: 10px;
     color: white;
     font-size: 14px;
+    .created, .sns-buttons{
+      a{
+        color: #fff;
+      }
+    }
     .sns-buttons{
       margin-top: 10px;
     }

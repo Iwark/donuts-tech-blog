@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   # タグ
   resources :tags, only: [:show]
 
+  # ユーザーページ
+  resources :users, only: [:show]
+
   ##############
   #  ログイン必須
   namespace :users, path: '' do

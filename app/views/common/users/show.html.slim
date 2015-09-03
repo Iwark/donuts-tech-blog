@@ -1,6 +1,6 @@
 == render 'common/breadcrumb', 
-  links:        [], 
-  current_page: :root
+  links:        [:root], 
+  current_page: "「#{@user.name}」の記事一覧"
 
 .articles
   - @articles.each do |article|

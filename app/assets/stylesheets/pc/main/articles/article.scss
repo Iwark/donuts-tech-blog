@@ -26,6 +26,9 @@
     color: white;
     .created, .sns-buttons{
       display: inline-block;
+      a{
+        color: #fff;
+      }
     }
     .article-tags{
       margin-top: 10px;

@@ -59,7 +59,7 @@ body{
 
 .main-container{
   position: absolute;
-  padding: 0 20px;
+  padding: 0 40px;
   padding-top: 50px;
   left: 0;
   right: 0;
@@ -74,6 +74,16 @@ body{
     margin: 0 auto;
     padding-bottom: 30px;
     background: transparent;
+    width: 1160px;
+    .main-contents{
+      float: left;
+      width: 800px;
+    }
+    .sidebar-right{
+      float: left;
+      margin-left: 20px;
+      width: 340px;
+    }
   }
 }
 

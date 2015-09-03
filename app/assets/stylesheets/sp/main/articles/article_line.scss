@@ -1,3 +1,84 @@
+$default-img-width: 1440px;
+$default-img-height: 240px;
+$img-size: 40px;
+$dimg-width: $default-img-width * ($img-size / $default-img-height);
+
 .article-line{
   margin-top: 20px;
+  max-width: 800px;
+  .alheader{
+    @include clear-both;
+    .date{
+      float: left;
+    }
+    .author{
+      float: left;
+      margin-left: 20px;
+      a{
+        margin-left: 5px;
+      }
+    }
+  }
+  .albody{
+    display: table;
+    min-height: $img-size;
+    .left{
+      position: relative;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      width: $img-size;
+      overflow: hidden;
+      background-color: #f0f0f0;
+      a:hover{
+        img{
+          opacity: 0.8;
+          filter: alpha(opacity=80);
+          background-color: #fff;
+        }
+      }
+      img.org{
+        max-width: $img-size;
+        max-height: $img-size;
+      }
+      img.default{
+        position: absolute;
+        top: 0;
+        left: ($img-size - $dimg-width)/2;
+        width: $dimg-width;
+        height: $img-size;
+      }
+    }
+    .right{
+      display: table-cell;
+      vertical-align: middle;
+      padding: 5px 10px;
+      .series-title{
+        a{
+          text-decoration: underline;
+        }
+        font-size: 12px;
+      }
+      a{
+        text-decoration: none;
+        &:hover{
+          h1.title, .introduction{
+            color: #777;
+          }
+          text-decoration: underline;
+          color: #777;
+        }
+        h1.title{
+          margin: 10px 0 0;
+          font-size: 18px;
+          color: #444;
+        }
+        .introduction{
+          font-size: 10px;
+          margin: 8px 0 4px;
+          color: #555;
+        }
+      }
+    }
+  }
 }

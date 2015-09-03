@@ -45,13 +45,18 @@ class Article < ActiveRecord::Base
     order(created_at: :desc).
     page(page).
     per(per).
-    includes(:user)
+    includes([:user, :series, :tags])
   }
 
   scope :between, -> from, to {
     where(arel_table[:created_at].gt(from)).
     where(arel_table[:created_at].lt(to))
   }
+
+  def image_url
+    m = self.body.match(/\!\[.*?\]\((.*?)\)/)
+    m ? m[1] : nil
+  end
 
   def public?
     status == "approved"
