@@ -25,7 +25,8 @@ class ArticleImage < ActiveRecord::Base
 
   # 自分以外の記事への画像アップロードは禁止
   def must_belongs_to_own_article
-    if self.article.user_id != self.user_id
+    user = User.find(self.user_id)
+    if self.article.user_id != self.user_id && !user.administrator?
       errors.add(:article_id, :must_belongs_to_own_article)
     end
   end
