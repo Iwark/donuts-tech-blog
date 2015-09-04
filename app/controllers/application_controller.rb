@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       @meta_title = "Donuts Tech Blog｜エンジニア集団Donuts"
       @meta_description = "新規のWebサービスやゲームで用いられている新しい技術や、何年も運用を続けているWebサービスやゲームのノウハウなどを紹介していきます。"
       @meta_keywords = "Donuts,ドーナツ,技術ブログ,エンジニア,新規技術,運用ノウハウ"
-      @meta_og_image = ActionController::Base.helpers.image_url('logo.png')
+      @meta_og_image = AURI.join(root_url, ActionController::Base.helpers.image_url('logo_color.png'))
     end
 
 end

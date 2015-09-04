@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
     @meta_title = @article.title
     @meta_description = ActionController::Base.helpers.sanitize(markdown(@article.body), tags: []).truncate(140)
-    @meta_og_image = @article.image_url || URI.join(root_url, ActionController::Base.helpers.image_url('article_header.jpg'))
+    @meta_og_image = @article.image_url if @article.image_url
 
   end
 
