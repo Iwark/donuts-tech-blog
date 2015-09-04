@@ -1,7 +1,7 @@
 / article_image
 / article_id
 
-= simple_form_for article_image, html: { multipart: true }, remote: true do |f|
+= simple_form_for article_image, html: { multipart: true }, remote: true, format: :js do |f|
   = f.error_notification
 
   .form-inputs

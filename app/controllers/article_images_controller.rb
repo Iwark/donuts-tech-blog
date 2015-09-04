@@ -11,6 +11,12 @@ class ArticleImagesController < ApplicationController
     @article_image.user = current_user
 
     @article_image.save
+
+    respond_to do |format| 
+      format.html 
+      format.js { render 'create.js.erb' }
+    end
+
   end
 
 end
