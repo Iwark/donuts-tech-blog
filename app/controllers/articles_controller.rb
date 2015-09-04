@@ -1,6 +1,9 @@
 # coding: utf-8
 
 class ArticlesController < ApplicationController
+
+  include ApplicationHelper
+
   before_action :set_resent_articles, only: [:index, :show]
 
   # GET /articles
@@ -12,6 +15,11 @@ class ArticlesController < ApplicationController
   def show(id)
     @article = Article.find(id)
     redirect_to :root if @article.status != "approved" && !user_signed_in?
+
+    @meta_title = @article.title
+    @meta_description = ActionController::Base.helpers.sanitize(markdown(@article.body), tags: []).truncate(140)
+    @meta_og_image = @article.image_url || URI.join(root_url, ActionController::Base.helpers.image_url('article_header.jpg'))
+
   end
 
   private
