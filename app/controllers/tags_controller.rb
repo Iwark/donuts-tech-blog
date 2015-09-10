@@ -5,5 +5,6 @@ class TagsController < ApplicationController
   def show(id, page=1)
     @tag             = Tag.find(id)
     @articles        = @tag.articles.approved_by_page(page)
+    @meta_title = @tag.name
   end
 end
