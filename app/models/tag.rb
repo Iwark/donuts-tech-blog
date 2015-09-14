@@ -31,4 +31,11 @@ class Tag < ActiveRecord::Base
     user.administrator? || article.user_id == user.id
   end
 
+  def self.update_articles_count
+    find_each do |tag|
+      tag.articles_count = tag.articles.by_status(:approved).count
+      tag.save
+    end
+  end
+
 end
