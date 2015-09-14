@@ -7,9 +7,9 @@ javascript:
 .article
   .article-header
     - if article.persisted?
-      = link_to article_path(article) do ||
-        h1.title = article.title
-        h2.series-title = "〜#{article.series_title}シリーズ〜"
+      .series-title
+        = link_to "「#{article.series_title}」シリーズ", series_path(article.series)
+      h1.title = article.title
       .ah-footer
         .created
           = link_to article.user_name, user_path(article.user)
