@@ -62,6 +62,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'capistrano-faster-assets', '~> 1.0'
 end
 group :development, :test do
   gem 'annotate'
