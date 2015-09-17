@@ -34,13 +34,16 @@
       li{
         font-size: 16px;
         margin: 10px 0;
+        ul{
+          margin: 10px 0;
+        }
       }
     }
     span.MathJax{
       text-align: center;
       display: block;
       margin: 30px;
-      font-size: 24px;
+      font-size: 30px;
     }
   }
 
