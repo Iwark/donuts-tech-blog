@@ -1,0 +1,9 @@
+== render 'common/breadcrumb', 
+  links:        [], 
+  current_page: :root
+
+.articles
+  - @articles.each do |article|
+    = render 'articles/article_line', article: article
+
+= paginate @articles

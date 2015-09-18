@@ -1,5 +1,6 @@
 .articles{
   .article{
+    margin-top: -10px;
     margin-bottom: 120px;
   }
 }
@@ -10,7 +11,7 @@
 
 .article-body{
   .contents{
-    padding: 20px;
+    padding: 20px 10px;
     max-width: 800px;
     img{
       max-width: 100%;
