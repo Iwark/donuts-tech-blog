@@ -12,9 +12,9 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1
-  def show(id)
+  def show(id, key=nil)
     @article = Article.find(id)
-    redirect_to :root if @article.status != "approved" && !user_signed_in?
+    redirect_to :root if @article.status != "approved" && @article.key != key && !user_signed_in?
 
     @meta_title = @article.title
     @meta_description = ActionController::Base.helpers.sanitize(markdown(@article.body), tags: []).truncate(140)

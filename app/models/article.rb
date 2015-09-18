@@ -65,4 +65,9 @@ class Article < ActiveRecord::Base
     status == "approved"
   end
 
+  # 限定公開用のkey
+  def key
+    Digest::SHA1.hexdigest("key_of_article_#{id}")[0..7]
+  end
+
 end
