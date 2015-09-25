@@ -13,7 +13,11 @@ Rails.application.routes.draw do
       delete :destroy_tag
     end
   end
-  resources :article_images, only: [:create]
+  resources :article_images, only: [:create] do
+    collection do
+      post :upload
+    end
+  end
   resources :series, only: [:show]
   resources :tags,   only: [:show]
   resources :users,  only: [:show]

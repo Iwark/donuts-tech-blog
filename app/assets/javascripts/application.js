@@ -15,6 +15,8 @@
 //= require jquery.remotipart
 //= require jquery.datetimepicker
 //= require bootstrap
+//= require ace-rails-ap
+//= require bootstrap-markdown-editor
 //= require_tree .
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

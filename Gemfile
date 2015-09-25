@@ -52,6 +52,10 @@ gem 'jquery-datetimepicker-rails'
 # PC/スマホ 切り分け
 gem 'jpmobile'
 
+# マークダウンエディター
+gem 'ace-rails-ap'
+gem 'bootstrap-markdown-editor-rails'
+
 group :development do
   gem 'html2slim'
   gem 'bullet'

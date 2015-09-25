@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     CFPropertyList (2.3.1)
+    ace-rails-ap (4.0.0)
     action_args (1.5.4)
     actionmailer (4.2.1)
       actionpack (= 4.2.1)
@@ -56,6 +57,8 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-markdown-editor-rails (1.2.1)
+      railties (> 3.1)
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
@@ -475,11 +478,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ace-rails-ap
   action_args
   active_decorator
   annotate
   awesome_nested_set
   awesome_print
+  bootstrap-markdown-editor-rails
   bootstrap-sass
   bullet
   byebug

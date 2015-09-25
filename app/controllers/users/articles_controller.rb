@@ -27,8 +27,8 @@ class Users::ArticlesController < ApplicationController
   end
 
   # PUT /articles/1
-  def update(article)
-    @article.status = 'draft' if @article.status == 'temp'
+  def update(article, preview=false)
+    @article.status = 'draft' if @article.status == 'temp' && !preview
     @article.tags = Tag.where(id: article['tag_ids'].map(&:to_i))
     if @article.update(article)
       redirect_to @article, notice: 'Article was successfully updated.'
