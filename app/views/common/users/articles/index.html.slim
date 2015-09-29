@@ -25,6 +25,6 @@ table.table.mt10
         td = article.status
         td = link_to '詳細', article_path(article)
         td = link_to '編集', edit_users_article_path(article)
-        td = link_to '削除', users_article_path(article), method: :delete
+        td = link_to '削除', users_article_path(article), method: :delete, data:{confirm: '本当に削除しても宜しいですか？'}
 
 = paginate @articles
