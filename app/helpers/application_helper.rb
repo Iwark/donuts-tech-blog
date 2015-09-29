@@ -8,7 +8,11 @@ module ApplicationHelper
     def block_code(code, language)
       sha = Digest::SHA1.hexdigest(code)
       Rails.cache.fetch ["code", language, sha].join('-') do
-        Pygments.highlight(code, lexer:language)
+        begin
+          Pygments.highlight(code, lexer:language)
+        rescue MentosError => e
+          code
+        end
       end
     end
   end
