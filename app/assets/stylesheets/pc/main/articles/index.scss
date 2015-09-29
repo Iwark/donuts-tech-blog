@@ -45,6 +45,16 @@
       margin: 30px;
       font-size: 30px;
     }
+    table{
+      border-collapse: collapse;
+      margin: 20px 0;
+      tr{
+        th, td{
+          border: 1px solid #aaa;
+          padding: 4px 6px;
+        }
+      }
+    }
   }
 
   .sidebar-right{
