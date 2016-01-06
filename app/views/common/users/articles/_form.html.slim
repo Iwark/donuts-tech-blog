@@ -1,0 +1,13 @@
+= simple_form_for([:users, @article]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :series
+    = f.association :tags
+    = f.input :title
+    = f.input :body
+    #editor data-article-id=@article.id
+
+  .form-actions
+    = f.button :submit, value: 'プレビュー', name: 'preview', class: 'btn-warning'
+    = f.button :submit, class: 'btn-primary'

@@ -1,0 +1,9 @@
+= simple_form_for([:admin, series]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :description
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary'

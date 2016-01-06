@@ -1,0 +1,61 @@
+.articles{
+  .article{
+    margin-top: -10px;
+    margin-bottom: 120px;
+  }
+}
+
+.article{
+  position: relative;
+}
+
+.article-body{
+  .contents{
+    padding: 20px 10px;
+    max-width: 800px;
+    img{
+      max-width: 100%;
+    }
+  }
+
+  .sidebar-right{
+    position: absolute;
+    top: 260px;
+    left: 840px;
+  }
+}
+
+form{
+  .form-group textarea.form-control{
+    height: 600px;
+  }
+  .form-actions{
+    text-align: center;
+  }
+}
+
+.new-article{
+  @include clear-both;
+  .contents{
+    float: left;
+    width: 70%;
+  }
+  .sidebar-right{
+    float: left;
+    width: 30%;
+    padding: 20px;
+    table.article-images{
+      td{
+        height: 40px;
+        word-break: break-all;
+        img{
+          height: 40px;
+        }
+      }
+      td.url{
+        padding: 2px 10px;
+        font-size: 12px;
+      }
+    }
+  }
+}

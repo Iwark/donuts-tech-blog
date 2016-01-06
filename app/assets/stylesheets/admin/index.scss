@@ -1,0 +1,23 @@
+body.object.admin{
+  ul.admin-menu{
+    @include clear-both;
+    li{
+      float: left;
+      margin: 10px;
+      border: 1px solid #ffc6c6;
+      background-color: #fffefe;
+      list-style: none;
+      a{
+        width: 230px;
+        padding: 10px 20px;
+        font-size: 15px;
+        text-decoration: none;
+        &:before{
+          margin-right: 6px;
+          vertical-align: middle;
+          color: #ff6363;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+.article-tags{
+  @include clear-both;
+  .tag{
+    float: left;
+  }
+}

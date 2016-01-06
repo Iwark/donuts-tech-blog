@@ -1,0 +1,101 @@
+//= require bootstrap-markdown-editor
+
+// First import cerulean variables
+@import "../mixins/*";
+@import "../colors";
+
+*{
+  // borderとpaddingをボックス内に含めるようにする
+  box-sizing: border-box;
+  // 長押しポップアップメニューの非表示
+  -webkit-touch-callout:none;
+}
+
+a{
+  color: #555;
+  text-decoration: underline;
+}
+
+a.btn{
+  text-decoration: none;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+}
+
+.header{
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 50px; 
+  background-color: $black-color;
+  z-index: 999;
+  .logo{
+    position: absolute; 
+    top: 0; 
+    left: 20px; 
+    height:100%;
+    img{
+      height: 100%;
+    }
+  }
+  ul.header-menu{
+    display: none;
+  }
+}
+
+.main-container{
+  position: absolute;
+  padding-top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  z-index:1;
+  background: transparent;
+  .main-body{
+    @include clear-both;
+    min-height: 100%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    background: transparent;
+  }
+}
+
+footer {
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: $black-color;
+
+  .copyright {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    font-family: Hiragino Kaku Gothic ProN;
+    text-align: center;
+    color: #7e7e7e;
+  }
+}
+
+h1, h2, h3, h4, h5, h6{
+  color: $orange-color;
+}
+
+.mt10{
+  margin-top: 10px;
+}
+
+@import "main/**/*";

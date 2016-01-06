@@ -1,0 +1,18 @@
+== render 'common/breadcrumb', 
+  links:        [:root, :admin_index], 
+  current_page: :admin_series_index
+
+table.table
+  thead
+    tr
+      th タイトル
+      th 説明文
+      th 編集
+  tbody
+    - @series.each do |series|
+      tr
+        td = series.title
+        td = series.description
+        td = link_to '編集', edit_admin_series_path(series)
+
+= link_to '新規シリーズ作成', new_admin_series_path

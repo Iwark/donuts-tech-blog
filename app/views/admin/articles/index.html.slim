@@ -1,9 +1,14 @@
+== render 'common/breadcrumb', 
+  links:        [:root, :admin_index], 
+  current_page: :admin_articles
+
 
 table.table
   thead
     tr
       th タイトル
       th 作成者
+      th 編集
       th 状態
       th 公開
       th 削除
@@ -13,5 +18,6 @@ table.table
         td = article.title
         td = article.user_name
         td = article.status
-        td = link_to '公開', admin_article_approve_path(article), method: :patch
-        td = link_to '削除', article_path(article), method: :delete
+        td = link_to '編集', edit_users_article_path(article), method: :get
+        td = link_to '公開', approve_admin_article_path(article), method: :patch
+        td = link_to '削除', article_path(article), method: :delete, data: {confirm: '本当に削除しても宜しいですか？'}

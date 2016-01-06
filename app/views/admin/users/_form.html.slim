@@ -1,0 +1,11 @@
+/ user
+
+= simple_form_for([:admin, user]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :authority, collection: User.authorities.keys
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary'

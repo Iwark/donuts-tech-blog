@@ -1,0 +1,43 @@
+.article-header{
+  position: relative;
+  width: 100%;
+  height: 240px;
+  background-image: image-url("article_header.jpg");
+  background-size: auto 240px;
+  padding: 15px;
+  .series-title{
+    margin: 0 5px;
+    color: white;
+    a{
+      color: white;
+    }
+    &:after{
+      content: '>';
+      vertical-align: top;
+    }
+  }
+  h1.title{
+    margin: 18px 5px;
+    color: white;
+    font-size: 30px;
+    line-height: 38px;
+  }
+  .ah-footer{
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    color: white;
+    .created, .sns-buttons{
+      display: inline-block;
+      a{
+        color: #fff;
+      }
+    }
+    .sns-buttons{
+      margin-left: 15px;
+    }
+    .article-tags{
+      margin-top: 10px;
+    }
+  }
+}

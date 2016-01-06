@@ -1,0 +1,12 @@
+/ article_image
+/ article_id
+
+= simple_form_for article_image, html: { multipart: true }, remote: true, format: :js do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.hidden_field :article_id, value: article_id
+    = f.input :image
+
+  .form-actions
+    = f.button :submit, value: '画像アップロード', class: 'btn-primary'

@@ -1,0 +1,51 @@
+- meta_title = (controller.controller_name == 'index' && controller.action_name == 'index') ? @meta_title : "#{@meta_title}｜Donuts Tech Blog"
+
+title = meta_title
+
+meta charset="utf-8"
+meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"
+meta content="noodp, noydir" name="robots"
+
+meta name="apple-mobile-web-app-url" content=root_url
+meta name="apple-mobile-web-app-title" content="DonutsTechBlog"
+
+meta name="twitter:widgets:link-color" content="#92e1c4"
+
+link media='handheld' rel='alternate' href= request.original_url.gsub(request.host, "tech.donuts.ne.jp")
+link rel="canonical" href= request.original_url.gsub(request.host, "tech.donuts.ne.jp")
+
+= csrf_meta_tags
+
+/ script type="application/ld+json"
+/   | {
+/   |   "@context": "http://schema.org",
+/   |   "@type": "WebSite",
+/   |   "url": "http://candypot.jp/",
+/   |   "potentialAction": {
+/   |     "@type": "SearchAction",
+/   |     "target": "http://candypot.jp/search/?q={q}",
+/   |     "query-input": "required name=q"
+/   |   }
+/   | }
+
+- set_meta_tags description: @meta_description
+- set_meta_tags keywords: @meta_keywords
+
+ruby:
+  ogp = {
+    title: meta_title,
+    type: t("meta.ogp.#{controller_name}.#{action_name}.type", default: t("meta.ogp.type")),
+    image: @meta_og_image,
+    site_name: 'Donuts Tech Blog',
+    description: @meta_description,
+    locale: 'ja_JP' # 英語版を作る場合は要変更
+  }
+  #tw_card = {
+  #  card: "summary_large_image",
+  #  site: "@tech.donuts.ne.jp",
+  #}
+
+- set_meta_tags og: ogp
+/ - set_meta_tags twitter: tw_card
+= display_meta_tags
+/ meta content="#{Settings.facebook.app_id}" property='fb:app_id'

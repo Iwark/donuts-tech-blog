@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    = render 'layouts/meta_tags'
+    = stylesheet_link_tag    'pc/application', media: 'all'
+    = javascript_include_tag 'application'
+    = favicon_link_tag 'favicon.ico'
+    script type="text/x-mathjax-config"
+      | MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  body class="#{controller.class.parent.name.downcase} #{controller.controller_name}"
+    .wrapper
+      .header
+        .logo
+          = link_to image_tag('logo.png'), root_path
+        ul.header-menu
+          / ログインしていなければログインボタンを表示する
+          -if user_signed_in?
+            li = link_to 'マイページ', users_articles_path
+            -if current_user.administrator?
+              li = link_to '管理画面', admin_index_path
+      .main-container
+        -if content_for? :breadcrumb
+          section.top-bar
+            = yield :breadcrumb
+        .main-body
+          .main-contents
+            / p.notice= notice
+            / p.alert= alert
+            = yield
+          .sidebar-right
+            - if content_for? :sidebar_right
+              = yield :sidebar_right
+            - else
+              = render 'layouts/sidebar_right'
+        footer
+          .copyright = "Copyright©Donuts,co.ltd.All rights Reserved."

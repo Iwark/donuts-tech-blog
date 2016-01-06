@@ -1,0 +1,50 @@
+section.top-bar{
+  margin: 0 12px;
+  height: 44px;
+  line-height: 44px;
+  border-top: 1px solid #fafafa;
+  border-bottom: 1px solid #fafafa;
+}
+
+ol.breadcrumb{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  li{
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    padding-right: 8px;
+    margin-right: 32px;
+    a{
+      text-decoration: none;
+      &:before, &:after{
+        content: "";
+        position: absolute;
+        top: 1px;
+        border: 20px solid transparent;
+        pointer-events: none;
+        cursor: default;
+      }
+      &:before{
+        right: -38px;
+        border-left: 12px solid #ddd;
+        z-index: 1;
+      }
+      &:after{
+        right: -37px;
+        border-left: 12px solid #fff;
+        z-index: 2;
+      }
+    }
+    .glyphicon.glyphicon-home{
+      // line-height: 15px;
+      top: 0;
+      &:before{
+        color: $orange-color;
+        margin-right: 3px;
+        vertical-align: middle;
+      }
+    }
+  }
+}

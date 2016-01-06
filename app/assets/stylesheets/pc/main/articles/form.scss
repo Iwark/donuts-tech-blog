@@ -1,0 +1,20 @@
+body.users.articles{
+  .new-article{
+    .contents{
+      #article_body{
+        display: none;
+      }
+    }
+  }
+  .sidebar-right{
+  }
+  .tooltip{
+    position: absolute;
+    font-size: 18px;
+    z-index: 100;
+    background-color: #fff;
+    border: 1px solid #666;
+    padding: 2px;
+  }
+}
+

@@ -4,11 +4,20 @@ class Admin::ArticlesController < AdminController
 
   # GET /admin/articles
   def index(page = nil)
-    @articles = Article.order(created_at: :desc).page(page).per(10).includes(:user)
+    @articles = Article.
+                  where.not(status: [Article.statuses[:deleted]]).
+                  order(created_at: :desc).
+                  page(page).
+                  per(20).
+                  includes(:user)
   end
 
-  def approve(article_id)
-    Article.find(article_id).update(status: :approved)
+  # PATCH /admin/articles/:id/approve
+  def approve(id)
+    article = Article.find(id)
+    article.status = :approved
+    article.approved_at ||= Time.zone.now
+    article.save
     redirect_to :admin_articles
   end
 end

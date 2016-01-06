@@ -1,0 +1,9 @@
+== render 'common/breadcrumb', 
+  links:        [:root], 
+  current_page: "「#{@tag.name}」タグ"
+
+.articles
+  - @articles.each do |article|
+    = render 'articles/article_line', article: article
+
+= paginate @articles

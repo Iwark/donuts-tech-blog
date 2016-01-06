@@ -1,0 +1,19 @@
+ja:
+  common:
+    breadcrumb:
+      # メインコンテンツ
+      root: トップ
+      # ユーザーページ
+      users_articles: マイページ
+      new_users_article: 新規記事作成
+      edit_users_article: 記事編集
+      # 管理画面
+      admin_articles: 記事管理
+      admin_index: 管理画面
+      admin_series_index: シリーズ管理
+      new_admin_series: 新規シリーズ作成
+      edit_admin_series: シリーズ編集
+      admin_tags: タグ管理
+      new_admin_tag: 新規タグ作成
+      edit_admin_tag: タグ編集
+      admin_users: ユーザー管理

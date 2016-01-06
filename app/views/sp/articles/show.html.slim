@@ -1,0 +1,5 @@
+== render 'common/breadcrumb', 
+  links:        [:root, @article.series.title => series_path(@article.series) ], 
+  current_page: truncate(@article.title, length: 10)
+
+= render 'article', article: @article, resent_articles: @resent_articles

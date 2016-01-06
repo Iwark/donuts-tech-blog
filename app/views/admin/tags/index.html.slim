@@ -1,0 +1,16 @@
+== render 'common/breadcrumb', 
+  links:        [:root, :admin_index], 
+  current_page: :admin_tags
+
+table.table
+  thead
+    tr
+      th タイトル
+      th 編集
+  tbody
+    - @tags.each do |tag|
+      tr
+        td = tag.name
+        td = link_to '編集', edit_admin_tag_path(tag)
+
+= link_to '新規タグ作成', new_admin_tag_path

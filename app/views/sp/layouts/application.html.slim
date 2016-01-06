@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    = render 'layouts/meta_tags'
+    = stylesheet_link_tag    'sp/application', media: 'all'
+    = javascript_include_tag 'application'
+    = favicon_link_tag 'favicon.ico'
+  body class="#{controller.class.parent.name.downcase} #{controller.controller_name}"
+    .wrapper
+      .header
+        .logo
+          = link_to image_tag('logo.png'), root_path
+        / ul.user-info
+        /   / ログインしていなければログインボタンを表示する
+        /   -unless user_signed_in?
+        /     li = link_to 'ログイン', user_omniauth_authorize_path(:google_oauth2)
+        /   -else
+        /     li = link_to 'ログアウト', destroy_user_session_path, method: :delete
+      .main-container
+        -if content_for? :breadcrumb
+          section.top-bar
+            = yield :breadcrumb
+        .main-body
+          .main-contents
+            p.notice= notice
+            p.alert= alert
+            = yield
+        footer
+          .copyright = "Copyright©Donuts,co.ltd.All rights Reserved."

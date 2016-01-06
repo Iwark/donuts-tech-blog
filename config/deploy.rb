@@ -3,7 +3,7 @@ set :repo_url, 'git@github.com:Iwark/donuts-tech-blog.git'
 
 set :scm, :git
 
-set :rbenv_ruby, '2.2.1'
+set :rbenv_ruby, '2.2.2'
 
 # Default value for :linked_files is []
 set :linked_files, %w{config/database.yml config/secrets.yml}
@@ -23,6 +23,21 @@ set :unicorn_config_path, 'config/unicorn.rb'
 
 namespace :deploy do
 
+  # Compresses all .js and .css files under the assets path.
+  # 
+  # It is important that we execute this after :normalize_assets because
+  # ngx_http_gzip_static_module recommends that compressed and uncompressed
+  # variants have the same mtime. Note that gzip(1) sets the mtime of the
+  # compressed file after the original one automatically.
+  # after :normalize_assets, :gzip_assets do
+  #   on release_roles(fetch(:assets_roles)) do
+  #     assets_path = release_path.join('public', fetch(:assets_prefix))
+  #     within assets_path do
+  #       execute :find, ". \\( -name '*.js' -o -name '*.css' \\) -exec test ! -e {}.gz \\; -print0 | xargs -r -P8 -0 gzip --keep --best --quiet"
+  #     end
+  #   end
+  # end
+
   desc 'Restart application'
   task :restart do
     invoke 'unicorn:restart'
@@ -34,7 +49,7 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          # execute :rake, 'cache:clear'
+          execute :rake, 'cache:clear'
         end
       end
     end
